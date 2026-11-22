@@ -1,29 +1,24 @@
 {
   "masthead": "Saturday 21 November 2026",
-  "eyebrow_left": "ONE DAY OF WORLD NEWS",
-  "eyebrow_right": "21 STORIES · 6 CONTINENTS + SPACE",
-  "timeline": [
-    {"time": "00:09", "label": "Peru M6.7"},
-    {"time": "02:00", "label": "Sinaloa raid"},
-    {"time": "09:42", "label": "Banda M6.8"},
-    {"time": "18:24", "label": "Mercury burn"},
-    {"time": "22:10", "label": "COP31 pauses"}
-  ],
+  "eyebrow_left": "THE WORLD IN ONE DAY",
+  "eyebrow_right": "25 STORIES · 7 REGIONS · EVERY ONE DATED SATURDAY 21 NOVEMBER 2026",
+  "deck": "Bahrain says Iran hit industrial site · EU & Indonesia sign CEPA pact · Mexico captures 'El Chapo Isidro' · COP31 overtime",
   "kpi_stats": [
     {"num": "6.7", "label": "Peru quake (USGS)", "color": "oklch(0.46 0.15 310)"},
     {"num": "2", "label": "tankers hit (UKMTO)", "color": "oklch(0.48 0.18 24)"},
     {"num": "128", "label": "UN robot talks", "color": "oklch(0.24 0.01 260)"},
     {"num": "90.4%", "label": "EU-CEPA duty-free", "color": "oklch(0.48 0.12 195)"},
-    {"num": "82.5k", "label": "France marchers", "color": "oklch(0.46 0.13 245)"}
+    {"num": "82.5k", "label": "France marchers", "color": "oklch(0.46 0.13 245)"},
+    {"num": "37–12", "label": "England beat NZ", "color": "oklch(0.46 0.12 170)"}
   ],
   "region_bar": [
-    {"name": "Europe 5", "count": 5, "color": "oklch(0.46 0.13 245)"},
+    {"name": "Europe 7", "count": 7, "color": "oklch(0.46 0.13 245)"},
     {"name": "Middle East 4", "count": 4, "color": "oklch(0.46 0.15 310)"},
     {"name": "Asia 4", "count": 4, "color": "oklch(0.48 0.12 195)"},
     {"name": "Americas 4", "count": 4, "color": "oklch(0.48 0.18 24)"},
     {"name": "Africa 2", "count": 2, "color": "oklch(0.46 0.13 150)"},
-    {"name": "Oceania 1", "count": 1, "color": "oklch(0.46 0.12 170)"},
-    {"name": "Global 1", "count": 1, "color": "oklch(0.24 0.01 260)"}
+    {"name": "Oceania 2", "count": 2, "color": "oklch(0.46 0.12 170)"},
+    {"name": "Global 2", "count": 2, "color": "oklch(0.24 0.01 260)"}
   ],
   "leads": [
     {
@@ -32,7 +27,7 @@
       "status": "OFFICIAL",
       "status_kind": "official",
       "title": "Bahrain says Iran hit industrial site",
-      "body": "No injuries; Iran claims 2 US radars. UKMTO reports 2 tankers hit off Oman.",
+      "body": "No injuries; Iran claims 2 US radars. UKMTO reports 2 tankers struck off Khasab, Oman.",
       "art": "bahrain_hormuz"
     },
     {
@@ -41,7 +36,7 @@
       "status": "OFFICIAL",
       "status_kind": "official",
       "title": "EU and Indonesia sign trade pact",
-      "body": "Duties cut on 98.5% of EU lines and 90.4% of Indonesia's in Brussels.",
+      "body": "Duties cut on 98.5% of EU lines and 90.4% of Indonesia's in Brussels; in force from 2027.",
       "art": "eu_indonesia"
     },
     {
@@ -50,54 +45,50 @@
       "status": "CONFIRMED",
       "status_kind": "confirmed",
       "title": "Mexico captures 'El Chapo Isidro'",
-      "body": "FBI fugitive held in Guasave; 4 soldiers and 7 gunmen died in clashes.",
+      "body": "FBI top-10 fugitive held in Guasave; 4 soldiers and 7 gunmen died in clashes.",
       "art": "mexico_sinaloa"
     }
   ],
   "cards": [
-    {"id": "4", "kicker": "4 · FINLAND", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Drone-hit ship burns", "sub": "16 crew safe. Reuters", "art": "finland_ship"},
-    {"id": "5", "kicker": "5 · CRYPTO", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Bitcoin swings 8%", "sub": "$55.2k low to $60.2k.", "art": "bitcoin_chart"},
-    {"id": "6", "kicker": "6 · TURKIYE", "status": "CONFIRMED", "status_kind": "confirmed", "title": "COP31 runs overtime", "sub": "Vote paused to Sun.", "art": "cop31_clock"},
-    {"id": "7", "kicker": "7 · SPACE", "status": "OFFICIAL", "status_kind": "official", "title": "BepiColombo burn", "sub": "Mercury orbit 18:24 UTC.", "art": "bepicolombo"},
-    {"id": "8", "kicker": "8 · PERU", "status": "OFFICIAL", "status_kind": "official", "title": "M6.7 quake hits Peru", "sub": "8 hurt; felt in Lima.", "art": "peru_quake"},
-    {"id": "9", "kicker": "9 · TAIWAN", "status": "OFFICIAL", "status_kind": "official", "title": "21 jets near Taiwan", "sub": "15 crossed median.", "art": "taiwan_jets"},
-    {"id": "10", "kicker": "10 · RUSSIA", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Ust-Luga drone hit", "sub": "Estonia scrambles jets.", "art": "ust_luga"},
-    {"id": "11", "kicker": "11 · CRICKET", "status": "CONFIRMED", "status_kind": "confirmed", "title": "India 486-4 vs NZ", "sub": "Rahul 136, Gill 98.", "art": "cricket_nz"}
+    {"id": "4", "kicker": "4 · FINLAND", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Drone-hit ship burns", "sub": "16 crew safe (Reuters)", "art": "finland_ship"},
+    {"id": "5", "kicker": "5 · CRYPTO", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Bitcoin swings 8%", "sub": "$55.2k low to $60.2k", "art": "bitcoin_chart"},
+    {"id": "6", "kicker": "6 · TURKIYE", "status": "CONFIRMED", "status_kind": "confirmed", "title": "COP31 runs overtime", "sub": "Vote paused to Sun (AFP)", "art": "cop31_clock"},
+    {"id": "7", "kicker": "7 · SPACE", "status": "OFFICIAL", "status_kind": "official", "title": "BepiColombo burn", "sub": "Mercury orbit 18:24 UTC", "art": "bepicolombo"},
+    {"id": "8", "kicker": "8 · PERU", "status": "OFFICIAL", "status_kind": "official", "title": "M6.7 quake hits Peru", "sub": "8 hurt; felt in Lima (USGS)", "art": "peru_quake"},
+    {"id": "9", "kicker": "9 · TAIWAN", "status": "OFFICIAL", "status_kind": "official", "title": "21 jets near Taiwan", "sub": "15 crossed median line", "art": "taiwan_jets"},
+    {"id": "10", "kicker": "10 · RUSSIA", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Ust-Luga drone hit", "sub": "Estonia scrambles jets", "art": "ust_luga"},
+    {"id": "11", "kicker": "11 · CRICKET", "status": "CONFIRMED", "status_kind": "confirmed", "title": "India 486–4 vs NZ", "sub": "Rahul 136, Gill 98 (ICC)", "art": "cricket_nz"}
   ],
   "briefs": [
     ["12", "UN", "128 states set 2-yr killer-robot path (AFP)"],
-    ["13", "Brazil", "Bolsonaro moved to ICU (Reuters)"],
-    ["14", "NATO", "Rutte vows to defend Poland (Reuters)"],
-    ["15", "France", "82,500 at cost-of-living marches"],
-    ["16", "London", "Leeds beat Chelsea 4-1 in EPL"],
-    ["17", "Nigeria", "24+ die as funeral boat capsizes (AP)"],
-    ["18", "Abuja", "CAF adopts Kiswahili, backs Infantino"],
-    ["19", "US", "Trump confirms FBI database hack"],
-    ["20", "India", "toxic liquor kills 16 in Manipur"],
-    ["21", "Australia", "beat England by 3 wkts in T20"]
+    ["13", "London", "England rout All Blacks 37–12 in rugby (RNZ)"],
+    ["14", "France", "82,500 at cost-of-living marches (AFP)"],
+    ["15", "UK EPL", "Leeds beat Chelsea 4–1; Arsenal 2–2 (BBC)"],
+    ["16", "Basra", "Power-station fire kills 4, hurts 35 (INA)"],
+    ["17", "Gaza", "Strike on food-aid van kills 3 (Al Jazeera)"],
+    ["18", "Banda Sea", "M6.8 quake felt in Darwin; no tsunami (USGS)"],
+    ["19", "Manipur", "Toxic liquor kills 16; ~600 ill (India)"],
+    ["20", "Brazil", "Bolsonaro moved to ICU with obstruction (Reuters)"],
+    ["21", "Las Vegas", "Verstappen takes F1 pole; Russell 2nd (F1)"],
+    ["22", "Abuja", "CAF adopts Kiswahili, backs Infantino (AFP)"],
+    ["23", "Melbourne", "Australia beat England by 3 wkts in T20 (ABC)"],
+    ["24", "Dhaka", "50 garment plants close on strike (Tribune)"],
+    ["25", "Doha", "Cameroon lose U17 opener 2–1 (Africanews)"]
   ],
   "pins": [
     {"id": 1, "lon": 50.6, "lat": 26.2, "r": "MIDDLE EAST"},
     {"id": 2, "lon": 4.4, "lat": 50.8, "r": "EUROPE"},
-    {"id": 3, "lon": -108.5, "lat": 25.6, "r": "AMERICAS"},
+    {"id": 3, "lon": -108.5, "lat": 25.6, "r": "N. AMERICA"},
     {"id": 4, "lon": 26.8, "lat": 60.1, "r": "EUROPE"},
-    {"id": 5, "lon": -0.1, "lat": 51.5, "r": "GLOBAL"},
+    {"id": 5, "lon": -74.0, "lat": 40.7, "r": "GLOBAL"},
     {"id": 6, "lon": 30.7, "lat": 36.9, "r": "MIDDLE EAST"},
-    {"id": 7, "lon": -70.0, "lat": -50.0, "r": "GLOBAL"},
-    {"id": 8, "lon": -75.5, "lat": -11.5, "r": "AMERICAS"},
+    {"id": 7, "lon": 8.6, "lat": 49.9, "r": "GLOBAL"},
+    {"id": 8, "lon": -75.5, "lat": -11.5, "r": "S. AMERICA"},
     {"id": 9, "lon": 121.5, "lat": 25.0, "r": "ASIA"},
     {"id": 10, "lon": 28.4, "lat": 59.7, "r": "EUROPE"},
     {"id": 11, "lon": 174.8, "lat": -41.3, "r": "OCEANIA"},
     {"id": 12, "lon": 6.1, "lat": 46.2, "r": "EUROPE"},
-    {"id": 13, "lon": -47.9, "lat": -15.8, "r": "AMERICAS"},
-    {"id": 14, "lon": 21.0, "lat": 52.2, "r": "EUROPE"},
-    {"id": 15, "lon": 2.3, "lat": 48.9, "r": "EUROPE"},
-    {"id": 16, "lon": 0.0, "lat": 51.5, "r": "EUROPE"},
-    {"id": 17, "lon": 6.3, "lat": 4.9, "r": "AFRICA"},
-    {"id": 18, "lon": 7.5, "lat": 9.1, "r": "AFRICA"},
-    {"id": 19, "lon": -77.0, "lat": 38.9, "r": "AMERICAS"},
-    {"id": 20, "lon": 93.9, "lat": 24.8, "r": "ASIA"},
-    {"id": 21, "lon": 145.0, "lat": -37.8, "r": "OCEANIA"}
+    {"id": 13, "lon": -0.1, "lat": 51.5, "r": "EUROPE"}
   ],
-  "date_check": "DATE CHECK · All 21 stories first reported SATURDAY 21 NOVEMBER 2026."
+  "date_check": "DATE CHECK — LEFT OUT ON PURPOSE (NOT SAT 21 NOV): Russian missiles in Poland (19–20 Nov) · Denmark expels Russian attaché (20 Nov) · ICJ Myanmar ruling (19 Nov) · Shenzhen summit (19 Nov) · Palisades verdict (20 Nov). Not yet: COP31 vote (Sun), Vegas GP race (Sun)."
 }
