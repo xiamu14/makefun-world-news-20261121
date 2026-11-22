@@ -207,7 +207,7 @@ def badge_html(status: str, kind: str, overlay: bool = False) -> str:
 
 
 def build_world_map_svg(pins: list[dict]) -> str:
-    w, h = 330, 178
+    w, h = 290, 152
 
     def proj(lon: float, lat: float) -> tuple[float, float]:
         px = ((lon + 180.0) / 360.0) * w
@@ -256,7 +256,7 @@ def generate_html(data_path: Path, out_html: Path) -> None:
 
     total_reg = sum(r['count'] for r in data['region_bar'])
     reg_html = ''.join(
-        f'<div class="reg-seg" style="width:{(r["count"]/total_reg)*100:.2f}%;background:{r["color"]}">{html.escape(r["name"])}</div>'
+        f'<div class="reg-seg" style="flex:{r["count"]} 0 auto;background:{r["color"]}">{html.escape(r["name"])}</div>'
         for r in data['region_bar']
     )
 
@@ -288,11 +288,11 @@ def generate_html(data_path: Path, out_html: Path) -> None:
 
     col1 = ''.join(
         f'<div class="brief"><span class="b-id">{b[0]}</span> <span class="b-loc">{html.escape(b[1])}:</span> {html.escape(b[2])}</div>'
-        for b in data['briefs'][:7]
+        for b in data['briefs'][:5]
     )
     col2 = ''.join(
         f'<div class="brief"><span class="b-id">{b[0]}</span> <span class="b-loc">{html.escape(b[1])}:</span> {html.escape(b[2])}</div>'
-        for b in data['briefs'][7:]
+        for b in data['briefs'][5:]
     )
 
     legend_html = ''.join(
@@ -361,9 +361,9 @@ def generate_html(data_path: Path, out_html: Path) -> None:
     justify-content: space-between;
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
-    font-size: 10.5px;
-    letter-spacing: 0.04em;
-    padding-bottom: 3px;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding-bottom: 2px;
     border-bottom: 1px solid var(--ink-primary);
   }}
   .eyebrow-left {{ color: var(--scarlet); }}
@@ -371,25 +371,25 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   h1.masthead {{
     font-family: nyt-cheltenham, "Playfair Display", "Libre Baskerville", georgia, serif;
     font-weight: 900;
-    font-size: 35px;
+    font-size: 38px;
     line-height: 1.02;
     text-align: center;
     letter-spacing: -0.015em;
-    padding: 4px 0 4px;
+    padding: 4px 0;
     border-bottom: 2px solid var(--ink-primary);
   }}
   .timeline {{
     display: grid;
-    grid-template-columns: 60px repeat(7, 1fr);
+    grid-template-columns: 64px repeat(5, 1fr);
     align-items: center;
     border-bottom: 1px solid var(--rule);
     padding: 3px 0;
   }}
   .kpi-strip {{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 6px;
-    padding: 4px 0;
+    padding: 3px 0;
     border-bottom: 1px solid var(--rule);
   }}
   .kpi-item {{
@@ -398,14 +398,14 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   .kpi-num {{
     font-family: nyt-cheltenham, "Libre Baskerville", georgia, serif;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.05;
     color: var(--scarlet);
   }}
   .kpi-lbl {{
     font-family: nyt-franklin, "Libre Franklin", helvetica, arial, sans-serif;
-    font-weight: 500;
-    font-size: 8.2px;
+    font-weight: 600;
+    font-size: 12px;
     line-height: 1.15;
     color: var(--ink-secondary);
     margin-top: 1px;
@@ -419,9 +419,10 @@ def generate_html(data_path: Path, out_html: Path) -> None:
     color: white;
     font-family: nyt-franklin, "Libre Franklin", "Arial Narrow", sans-serif;
     font-weight: 700;
-    font-size: 8.5px;
+    font-size: 12px;
     text-align: center;
-    padding: 2px 0;
+    white-space: nowrap;
+    padding: 2px 6px;
     border-radius: 1px;
   }}
   .tl-badge {{
@@ -429,10 +430,10 @@ def generate_html(data_path: Path, out_html: Path) -> None:
     color: white;
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
-    font-size: 10px;
-    line-height: 1.15;
+    font-size: 12px;
+    line-height: 1.1;
     text-align: center;
-    padding: 4px 2px;
+    padding: 3px 2px;
     border-radius: 2px;
   }}
   .tl-item {{
@@ -443,11 +444,11 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   .tl-time {{
     font-family: Georgia, serif;
     font-weight: 700;
-    font-size: 11px;
+    font-size: 13px;
     color: var(--scarlet);
   }}
   .tl-lbl {{
-    font-size: 9px;
+    font-size: 12px;
     color: var(--ink-secondary);
     white-space: nowrap;
   }}
@@ -455,11 +456,11 @@ def generate_html(data_path: Path, out_html: Path) -> None:
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    padding: 3px 0 5px;
+    padding: 3px 0 4px;
     border-bottom: 1px solid var(--rule);
   }}
   .lead-art {{
-    height: 140px;
+    height: 112px;
     border: 1px solid var(--ink-secondary);
     overflow: hidden;
   }}
@@ -472,22 +473,21 @@ def generate_html(data_path: Path, out_html: Path) -> None:
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 4px 0 2px;
+    margin: 3px 0 2px;
   }}
   .kicker {{
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
-    font-size: 9.5px;
+    font-size: 12px;
     color: var(--scarlet);
   }}
   .badge {{
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
-    font-size: 8px;
+    font-size: 12px;
     color: white;
-    padding: 1.5px 5px;
+    padding: 1px 6px;
     border-radius: 2px;
-    letter-spacing: 0.02em;
   }}
   .badge-confirmed {{ background: var(--badge-confirmed); }}
   .badge-official {{ background: var(--badge-official); }}
@@ -499,62 +499,62 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   .lead-card h2 {{
     font-family: nyt-cheltenham, "Playfair Display", "Libre Baskerville", georgia, serif;
     font-weight: 900;
-    font-size: 17px;
-    line-height: 1.12;
-    margin-bottom: 2px;
+    font-size: 21px;
+    line-height: 1.08;
+    margin-bottom: 3px;
   }}
   .lead-card p {{
     font-family: nyt-cheltenham, "Libre Baskerville", cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, "times new roman", times, serif;
-    font-size: 9px;
-    line-height: 1.56;
+    font-size: 12px;
+    line-height: 1.28;
     color: var(--ink-secondary);
   }}
   .cards {{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 9px 14px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px 14px;
     padding: 3px 0 5px;
     border-bottom: 2px solid var(--ink-primary);
   }}
   .mini-art {{
     position: relative;
-    height: 78px;
+    height: 62px;
     border: 1px solid var(--ink-secondary);
     overflow: hidden;
   }}
   .kicker-sm {{
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
-    font-size: 8px;
+    font-size: 12px;
     color: var(--scarlet);
     margin-top: 2px;
   }}
   .mini-card h3 {{
     font-family: nyt-cheltenham, "Playfair Display", "Libre Baskerville", georgia, serif;
     font-weight: 900;
-    font-size: 14.5px;
-    line-height: 1.12;
+    font-size: 16.5px;
+    line-height: 1.10;
     margin: 1px 0 2px;
   }}
   .mini-card p {{
     font-family: nyt-franklin, "Libre Franklin", helvetica, arial, sans-serif;
     font-weight: 500;
-    font-size: 8.6px;
-    line-height: 1.50;
+    font-size: 12px;
+    line-height: 1.25;
     color: var(--ink-secondary);
   }}
   .bottom {{
     display: grid;
-    grid-template-columns: 330px 1fr;
+    grid-template-columns: 290px 1fr;
     gap: 14px;
     align-items: start;
   }}
   .sec-hd {{
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
     color: var(--scarlet);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }}
   .map-box {{
     border: 1px solid var(--rule);
@@ -563,9 +563,9 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   .legend {{
     display: flex;
     flex-wrap: wrap;
-    gap: 3px 9px;
-    margin-top: 4px;
-    font-size: 8.5px;
+    gap: 2px 8px;
+    margin-top: 3px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--ink-secondary);
   }}
@@ -583,16 +583,16 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   .briefs-grid {{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 14px;
+    gap: 0 12px;
     border-top: 1px solid var(--ink-primary);
     padding-top: 3px;
   }}
   .brief {{
     font-family: nyt-franklin, "Libre Franklin", helvetica, arial, sans-serif;
     font-weight: 500;
-    font-size: 9.6px;
-    line-height: 1.38;
-    padding: 2.2px 0;
+    font-size: 12px;
+    line-height: 1.25;
+    padding: 2.5px 0;
     border-bottom: 1px solid var(--rule);
     color: var(--ink-primary);
   }}
@@ -607,21 +607,21 @@ def generate_html(data_path: Path, out_html: Path) -> None:
     color: var(--ink-primary);
   }}
   .date-check {{
-    margin-top: 5px;
+    margin-top: 4px;
     background: var(--bg-panel);
     border: 1px solid var(--rule);
     border-top: 2px solid var(--scarlet);
     padding: 4px 8px;
-    font-size: 8.8px;
-    line-height: 1.50;
+    font-size: 12px;
+    line-height: 1.28;
     color: var(--ink-primary);
   }}
   .footer {{
     display: flex;
     justify-content: space-between;
     border-top: 1px solid var(--ink-primary);
-    padding-top: 4px;
-    font-size: 8.5px;
+    padding-top: 3px;
+    font-size: 12px;
     color: var(--ink-muted);
   }}
 </style>
@@ -653,7 +653,7 @@ def generate_html(data_path: Path, out_html: Path) -> None:
         <div class="legend">{legend_html}</div>
       </div>
       <div>
-        <div class="sec-hd">ALSO ON SATURDAY 21 NOVEMBER · 14 MORE STORIES</div>
+        <div class="sec-hd">ALSO ON SATURDAY 21 NOVEMBER · 10 MORE STORIES</div>
         <div class="briefs-grid">
           <div>{col1}</div>
           <div>{col2}</div>
