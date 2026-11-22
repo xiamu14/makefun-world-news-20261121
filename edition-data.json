@@ -1,0 +1,101 @@
+{
+  "masthead": "Saturday 21 November 2026",
+  "eyebrow_left": "ONE DAY OF WORLD NEWS, ONE PICTURE",
+  "eyebrow_right": "27 STORIES · 6 CONTINENTS + SPACE · ALL FROM THIS SATURDAY",
+  "timeline": [
+    {"time": "00:09", "label": "Peru M6.7 quake"},
+    {"time": "02:00", "label": "Sinaloa raid"},
+    {"time": "03:45", "label": "Killer-robot talks end"},
+    {"time": "09:42", "label": "Banda Sea M6.8"},
+    {"time": "13:30", "label": "Bitcoin rebounds"},
+    {"time": "18:24", "label": "Mercury burn starts"},
+    {"time": "22:10", "label": "COP31 pauses to Sun"}
+  ],
+  "leads": [
+    {
+      "id": "1",
+      "kicker": "1 · BAHRAIN · HORMUZ",
+      "status": "OFFICIAL · BAHRAIN, UKMTO",
+      "status_kind": "official",
+      "title": "Bahrain says an Iranian strike set a site on fire",
+      "body": "No one hurt, Bahrain says; Iran claims it hit 2 US radars. Separately, UKMTO says 2 tankers were hit off Oman.",
+      "art": "bahrain_hormuz"
+    },
+    {
+      "id": "2",
+      "kicker": "2 · EU · INDONESIA",
+      "status": "OFFICIAL · EUROPEAN COMMISSION",
+      "status_kind": "official",
+      "title": "EU and Indonesia sign trade pact after a decade of talks",
+      "body": "Signed in Brussels with investment pact; duties go on 98.5% of EU tariff lines and 90.4% of Indonesia's.",
+      "art": "eu_indonesia"
+    },
+    {
+      "id": "3",
+      "kicker": "3 · MEXICO · SINALOA",
+      "status": "CONFIRMED · AP, REUTERS",
+      "status_kind": "confirmed",
+      "title": "Mexico captures 'El Chapo Isidro'; 11 die in clashes",
+      "body": "FBI top-10 fugitive Fausto Isidro Meza Flores held in Guasave; officials say 4 soldiers and 7 gunmen died.",
+      "art": "mexico_sinaloa"
+    }
+  ],
+  "cards": [
+    {"id": "4", "kicker": "4 · FINLAND", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Drone-hit Russian ship burns off Finland", "sub": "16 crew taken off; Finland suspects Kyiv. Reuters, BBC", "art": "finland_ship"},
+    {"id": "5", "kicker": "5 · CRYPTO", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Bitcoin swings 8% in one day", "sub": "From $55,250 low, lowest since 2024. CoinGecko", "art": "bitcoin_chart"},
+    {"id": "6", "kicker": "6 · TURKIYE", "status": "CONFIRMED", "status_kind": "confirmed", "title": "COP31 runs a full day over, still no deal", "sub": "Final vote moved to Sunday morning. Reuters, AFP", "art": "cop31_clock"},
+    {"id": "7", "kicker": "7 · SPACE", "status": "OFFICIAL", "status_kind": "official", "title": "BepiColombo fires burn to orbit Mercury", "sub": "37-minute burn from 18:24 UTC. ESA", "art": "bepicolombo"},
+    {"id": "8", "kicker": "8 · PERU", "status": "OFFICIAL", "status_kind": "official", "title": "M6.7 quake shakes central Peru", "sub": "8 hurt, officials say; felt in Lima. USGS", "art": "peru_quake"},
+    {"id": "9", "kicker": "9 · TAIWAN", "status": "OFFICIAL", "status_kind": "official", "title": "Taiwan says 21 Chinese jets held a patrol", "sub": "15 crossed median line. Taipei MoD", "art": "taiwan_jets"},
+    {"id": "10", "kicker": "10 · UKRAINE · RUSSIA", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Ukrainian drones hit Russia's Ust-Luga port", "sub": "Estonia scrambles NATO jets. Kyiv Post, ERR", "art": "ust_luga"},
+    {"id": "11", "kicker": "11 · BRAZIL", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Bolsonaro moved to intensive care", "sub": "Ex-president, 71, has bowel obstruction. Reuters", "art": "bolsonaro_icu"},
+    {"id": "12", "kicker": "12 · NEW ZEALAND", "status": "CONFIRMED", "status_kind": "confirmed", "title": "India 486 for 4 against New Zealand", "sub": "KL Rahul 136, Gill 98 in Wellington. ICC", "art": "cricket_nz"},
+    {"id": "13", "kicker": "13 · GENEVA · UN", "status": "CONFIRMED", "status_kind": "confirmed", "title": "UN talks set 2-year path on killer robots", "sub": "No mandate yet for binding treaty. AFP, Reuters", "art": "un_robots"}
+  ],
+  "briefs": [
+    ["14", "Iran", "says it shot down 2 US drones over Hormuz"],
+    ["15", "Gaza", "civil defence says Israeli fire killed 4"],
+    ["16", "NATO", "Rutte vows to defend 'every inch' of Poland"],
+    ["17", "France", "police count 82,500 at cost-of-living marches"],
+    ["18", "Dublin", "Ireland beat world champions South Africa 20-17"],
+    ["19", "Banda Sea", "M6.8 quake felt in Darwin; no tsunami"],
+    ["20", "India", "toxic liquor kills at least 16 in Manipur"],
+    ["21", "Japan", "snow cuts off 1,400 in a Fukushima village"],
+    ["22", "Nigeria", "at least 24 die as funeral boat capsizes"],
+    ["23", "Abuja", "CAF adopts Kiswahili, backs Infantino"],
+    ["24", "US", "Trump confirms a hack of the FBI crime database"],
+    ["25", "Florida", "St. Johns River tops its 1953 flood record"],
+    ["26", "Brazil", "lab mosquitoes cut dengue 69% in 4-year trial"],
+    ["27", "Australia", "beat England by 3 wickets in a T20 at MCG"]
+  ],
+  "pins": [
+    {"id": 1, "lon": 50.6, "lat": 26.2, "r": "MIDDLE EAST"},
+    {"id": 2, "lon": 4.4, "lat": 50.8, "r": "EUROPE"},
+    {"id": 3, "lon": -108.5, "lat": 25.6, "r": "N. AMERICA"},
+    {"id": 4, "lon": 26.8, "lat": 60.1, "r": "EUROPE"},
+    {"id": 5, "lon": -0.1, "lat": 51.5, "r": "GLOBAL"},
+    {"id": 6, "lon": 30.7, "lat": 36.9, "r": "MIDDLE EAST"},
+    {"id": 7, "lon": -70.0, "lat": -50.0, "r": "GLOBAL"},
+    {"id": 8, "lon": -75.5, "lat": -11.5, "r": "S. AMERICA"},
+    {"id": 9, "lon": 121.5, "lat": 25.0, "r": "ASIA"},
+    {"id": 10, "lon": 28.4, "lat": 59.7, "r": "EUROPE"},
+    {"id": 11, "lon": -47.9, "lat": -15.8, "r": "S. AMERICA"},
+    {"id": 12, "lon": 174.8, "lat": -41.3, "r": "OCEANIA"},
+    {"id": 13, "lon": 6.1, "lat": 46.2, "r": "EUROPE"},
+    {"id": 14, "lon": 56.4, "lat": 26.5, "r": "MIDDLE EAST"},
+    {"id": 15, "lon": 34.5, "lat": 31.5, "r": "MIDDLE EAST"},
+    {"id": 16, "lon": 21.0, "lat": 52.2, "r": "EUROPE"},
+    {"id": 17, "lon": 2.3, "lat": 48.9, "r": "EUROPE"},
+    {"id": 18, "lon": -6.3, "lat": 53.3, "r": "EUROPE"},
+    {"id": 19, "lon": 129.0, "lat": -6.5, "r": "ASIA"},
+    {"id": 20, "lon": 93.9, "lat": 24.8, "r": "ASIA"},
+    {"id": 21, "lon": 140.4, "lat": 37.7, "r": "ASIA"},
+    {"id": 22, "lon": 6.3, "lat": 4.9, "r": "AFRICA"},
+    {"id": 23, "lon": 7.5, "lat": 9.1, "r": "AFRICA"},
+    {"id": 24, "lon": -77.0, "lat": 38.9, "r": "N. AMERICA"},
+    {"id": 25, "lon": -81.6, "lat": 29.6, "r": "N. AMERICA"},
+    {"id": 26, "lon": -43.9, "lat": -19.9, "r": "S. AMERICA"},
+    {"id": 27, "lon": 145.0, "lat": -37.8, "r": "OCEANIA"}
+  ],
+  "date_check": "DATE CHECK · Every story 01–27 happened or was first reported on SATURDAY 21 NOVEMBER 2026. Earlier-day items excluded on purpose; COP31 final vote paused to Sunday."
+}
