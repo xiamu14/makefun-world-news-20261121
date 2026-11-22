@@ -3,6 +3,27 @@
 <head>
 <meta charset="utf-8"/>
 <style>
+  @font-face {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 700 900;
+    font-display: block;
+    src: url("./fonts/playfair-900.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Libre Baskerville";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: block;
+    src: url("./fonts/libre-baskerville.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Libre Franklin";
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: block;
+    src: url("./fonts/libre-franklin-900.woff2") format("woff2");
+  }
   :root {
     --bg-paper: oklch(0.992 0.004 90);
     --bg-panel: oklch(0.955 0.006 85);
@@ -21,16 +42,17 @@
     overflow: hidden;
     background: var(--bg-paper);
     color: var(--ink-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    text-rendering: geometricPrecision;
+    font-family: nyt-cheltenham, "Libre Baskerville", cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, "times new roman", times, serif;
+    text-rendering: optimizeLegibility;
   }
   .page {
     width: 1024px;
     height: 1024px;
-    padding: 8px 20px 8px;
+    padding: 8px 18px 6px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 2px;
   }
   .eyebrow {
     display: flex;
@@ -45,21 +67,60 @@
   .eyebrow-left { color: var(--scarlet); }
   .eyebrow-right { color: var(--ink-primary); }
   h1.masthead {
-    font-family: Didot, Georgia, serif;
-    font-weight: 700;
-    font-size: 51px;
-    line-height: 1.05;
+    font-family: nyt-cheltenham, "Playfair Display", "Libre Baskerville", georgia, serif;
+    font-weight: 900;
+    font-size: 35px;
+    line-height: 1.02;
     text-align: center;
-    letter-spacing: -0.01em;
-    padding: 4px 0 3px;
+    letter-spacing: -0.015em;
+    padding: 4px 0 4px;
     border-bottom: 2px solid var(--ink-primary);
   }
   .timeline {
     display: grid;
-    grid-template-columns: 64px repeat(7, 1fr);
+    grid-template-columns: 60px repeat(7, 1fr);
     align-items: center;
     border-bottom: 1px solid var(--rule);
+    padding: 3px 0;
+  }
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
     padding: 4px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .kpi-item {
+    padding-left: 6px;
+  }
+  .kpi-num {
+    font-family: nyt-cheltenham, "Libre Baskerville", georgia, serif;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.05;
+    color: var(--scarlet);
+  }
+  .kpi-lbl {
+    font-family: nyt-franklin, "Libre Franklin", helvetica, arial, sans-serif;
+    font-weight: 500;
+    font-size: 8.2px;
+    line-height: 1.15;
+    color: var(--ink-secondary);
+    margin-top: 1px;
+  }
+  .reg-bar {
+    display: flex;
+    gap: 2px;
+    margin-top: 3px;
+  }
+  .reg-seg {
+    color: white;
+    font-family: nyt-franklin, "Libre Franklin", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    font-size: 8.5px;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 1px;
   }
   .tl-badge {
     background: var(--scarlet);
@@ -91,12 +152,12 @@
   .leads {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding-bottom: 6px;
+    gap: 16px;
+    padding: 3px 0 5px;
     border-bottom: 1px solid var(--rule);
   }
   .lead-art {
-    height: 104px;
+    height: 140px;
     border: 1px solid var(--ink-secondary);
     overflow: hidden;
   }
@@ -134,53 +195,56 @@
     right: 4px;
   }
   .lead-card h2 {
-    font-family: Georgia, serif;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.15;
-    margin-bottom: 3px;
+    font-family: nyt-cheltenham, "Playfair Display", "Libre Baskerville", georgia, serif;
+    font-weight: 900;
+    font-size: 17px;
+    line-height: 1.12;
+    margin-bottom: 2px;
   }
   .lead-card p {
-    font-size: 9.5px;
-    line-height: 1.25;
+    font-family: nyt-cheltenham, "Libre Baskerville", cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, "times new roman", times, serif;
+    font-size: 9px;
+    line-height: 1.56;
     color: var(--ink-secondary);
   }
   .cards {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 8px 10px;
-    padding-bottom: 6px;
+    gap: 9px 14px;
+    padding: 3px 0 5px;
     border-bottom: 2px solid var(--ink-primary);
   }
   .mini-art {
     position: relative;
-    height: 60px;
+    height: 78px;
     border: 1px solid var(--ink-secondary);
     overflow: hidden;
   }
   .kicker-sm {
     font-family: "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
-    font-size: 8.5px;
+    font-size: 8px;
     color: var(--scarlet);
-    margin-top: 3px;
+    margin-top: 2px;
   }
   .mini-card h3 {
-    font-family: Georgia, serif;
-    font-weight: 700;
-    font-size: 11.5px;
-    line-height: 1.15;
+    font-family: nyt-cheltenham, "Playfair Display", "Libre Baskerville", georgia, serif;
+    font-weight: 900;
+    font-size: 14.5px;
+    line-height: 1.12;
     margin: 1px 0 2px;
   }
   .mini-card p {
-    font-size: 9.2px;
-    line-height: 1.22;
+    font-family: nyt-franklin, "Libre Franklin", helvetica, arial, sans-serif;
+    font-weight: 500;
+    font-size: 8.6px;
+    line-height: 1.50;
     color: var(--ink-secondary);
   }
   .bottom {
     display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 14px;
+    grid-template-columns: 280px 1fr;
+    gap: 12px;
     align-items: start;
   }
   .sec-hd {
@@ -216,36 +280,38 @@
   }
   .briefs-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 10px;
     border-top: 1px solid var(--ink-primary);
-    padding-top: 4px;
+    padding-top: 3px;
   }
   .brief {
-    font-size: 9.2px;
-    line-height: 1.28;
-    padding: 3.5px 0;
+    font-family: nyt-franklin, "Libre Franklin", helvetica, arial, sans-serif;
+    font-weight: 500;
+    font-size: 8.2px;
+    line-height: 1.32;
+    padding: 1.2px 0;
     border-bottom: 1px solid var(--rule);
-    color: var(--ink-secondary);
+    color: var(--ink-primary);
   }
   .b-id {
-    font-family: "Arial Narrow", Arial, sans-serif;
+    font-family: nyt-franklin, "Libre Franklin", "Arial Narrow", Arial, sans-serif;
     font-weight: 700;
     color: var(--scarlet);
   }
   .b-loc {
-    font-family: Georgia, serif;
+    font-family: nyt-cheltenham, "Libre Baskerville", cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, "times new roman", times, serif;
     font-weight: 700;
     color: var(--ink-primary);
   }
   .date-check {
-    margin-top: 7px;
+    margin-top: 5px;
     background: var(--bg-panel);
     border: 1px solid var(--rule);
     border-top: 2px solid var(--scarlet);
-    padding: 6px 8px;
-    font-size: 9.5px;
-    line-height: 1.3;
+    padding: 4px 8px;
+    font-size: 8.8px;
+    line-height: 1.50;
     color: var(--ink-primary);
   }
   .footer {
@@ -263,285 +329,307 @@
     <div>
       <div class="eyebrow">
         <span class="eyebrow-left">ONE DAY OF WORLD NEWS, ONE PICTURE</span>
-        <span class="eyebrow-right">27 STORIES · 6 CONTINENTS + SPACE · ALL FROM THIS SATURDAY</span>
+        <span class="eyebrow-right">40 STORIES · 6 CONTINENTS + SPACE · ALL FROM THIS SATURDAY</span>
       </div>
       <h1 class="masthead">Saturday 21 November 2026</h1>
       <div class="timeline">
         <div class="tl-badge">THE DAY<br/>IN UTC</div>
         <div class="tl-item"><div class="tl-time">00:09</div><div class="tl-lbl">Peru M6.7 quake</div></div><div class="tl-item"><div class="tl-time">02:00</div><div class="tl-lbl">Sinaloa raid</div></div><div class="tl-item"><div class="tl-time">03:45</div><div class="tl-lbl">Killer-robot talks end</div></div><div class="tl-item"><div class="tl-time">09:42</div><div class="tl-lbl">Banda Sea M6.8</div></div><div class="tl-item"><div class="tl-time">13:30</div><div class="tl-lbl">Bitcoin rebounds</div></div><div class="tl-item"><div class="tl-time">18:24</div><div class="tl-lbl">Mercury burn starts</div></div><div class="tl-item"><div class="tl-time">22:10</div><div class="tl-lbl">COP31 pauses to Sun</div></div>
       </div>
+      <div class="kpi-strip"><div class="kpi-item" style="border-left:3px solid oklch(0.46 0.15 310)"><div class="kpi-num">6.7</div><div class="kpi-lbl">Peru quake magnitude (USGS)</div></div><div class="kpi-item" style="border-left:3px solid oklch(0.48 0.18 24)"><div class="kpi-num">2</div><div class="kpi-lbl">tankers hit off Khasab (UKMTO)</div></div><div class="kpi-item" style="border-left:3px solid oklch(0.24 0.01 260)"><div class="kpi-num">128</div><div class="kpi-lbl">nations at UN robot talks (UN)</div></div><div class="kpi-item" style="border-left:3px solid oklch(0.48 0.12 195)"><div class="kpi-num">90.4%</div><div class="kpi-lbl">tariff lines duty-free (EU-CEPA)</div></div><div class="kpi-item" style="border-left:3px solid oklch(0.46 0.13 245)"><div class="kpi-num">82,500</div><div class="kpi-lbl">marchers in France (ministry)</div></div><div class="kpi-item" style="border-left:3px solid oklch(0.50 0.14 70)"><div class="kpi-num">11</div><div class="kpi-lbl">dead in Sinaloa raid (AP)</div></div></div>
+      <div class="reg-bar"><div class="reg-seg" style="width:25.00%;background:oklch(0.46 0.13 245)">Europe 10</div><div class="reg-seg" style="width:15.00%;background:oklch(0.46 0.15 310)">Middle East 6</div><div class="reg-seg" style="width:12.50%;background:oklch(0.46 0.13 150)">Africa 5</div><div class="reg-seg" style="width:15.00%;background:oklch(0.48 0.12 195)">Asia 6</div><div class="reg-seg" style="width:17.50%;background:oklch(0.48 0.18 24)">Americas 7</div><div class="reg-seg" style="width:7.50%;background:oklch(0.46 0.12 170)">Oceania 3</div><div class="reg-seg" style="width:7.50%;background:oklch(0.24 0.01 260)">Global 3</div></div>
     </div>
 
     <div class="leads"><article class="lead-card">
           <div class="lead-art">
-    <svg viewBox="0 0 320 112" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="320" height="54" fill="oklch(0.90 0.03 85)"/>
-      <rect y="54" width="320" height="58" fill="oklch(0.75 0.07 225)"/>
-      <path d="M0 62 L108 62 L92 112 L0 112 Z" fill="oklch(0.77 0.06 80)"/>
-      <path d="M204 112 L320 76 L320 112 Z" fill="oklch(0.77 0.06 80)"/>
-      <rect x="38" y="48" width="28" height="22" rx="2" fill="oklch(0.48 0.02 250)"/>
-      <path d="M46 52 L58 20 L70 52 Z" fill="oklch(0.58 0.20 35)"/>
-      <circle cx="62" cy="20" r="10" fill="oklch(0.42 0.01 260)" opacity="0.85"/>
-      <circle cx="74" cy="12" r="12" fill="oklch(0.50 0.01 260)" opacity="0.75"/>
-      <text x="14" y="90" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="oklch(0.30 0.04 75)">BAHRAIN</text>
-      <text x="234" y="104" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="9" fill="oklch(0.30 0.04 75)">KHASAB, OMAN</text>
-      <!-- Tanker 1 & 2 -->
-      <g transform="translate(172,48)">
+    <svg viewBox="0 0 320 140" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="68" fill="oklch(0.90 0.03 85)"/>
+      <rect y="68" width="320" height="72" fill="oklch(0.75 0.07 225)"/>
+      <path d="M0 78 L108 78 L92 140 L0 140 Z" fill="oklch(0.77 0.06 80)"/>
+      <path d="M204 140 L320 96 L320 140 Z" fill="oklch(0.77 0.06 80)"/>
+      <rect x="38" y="62" width="28" height="24" rx="2" fill="oklch(0.48 0.02 250)"/>
+      <path d="M46 66 L58 34 L70 66 Z" fill="oklch(0.58 0.20 35)"/>
+      <circle cx="62" cy="34" r="10" fill="oklch(0.42 0.01 260)" opacity="0.85"/>
+      <circle cx="74" cy="24" r="12" fill="oklch(0.50 0.01 260)" opacity="0.75"/>
+      <text x="14" y="114" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="11" fill="oklch(0.30 0.04 75)">BAHRAIN</text>
+      <text x="234" y="130" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="9" fill="oklch(0.30 0.04 75)">KHASAB, OMAN</text>
+      <g transform="translate(172,62)">
         <polygon points="0,12 52,12 46,21 6,21" fill="oklch(0.22 0.01 260)"/>
         <rect x="8" y="6" width="24" height="6" fill="oklch(0.48 0.18 24)"/>
         <polygon points="16,12 22,-3 28,12" fill="oklch(0.72 0.18 65)"/>
       </g>
-      <g transform="translate(234,62)">
+      <g transform="translate(234,78)">
         <polygon points="0,12 54,12 48,21 6,21" fill="oklch(0.22 0.01 260)"/>
         <rect x="8" y="6" width="26" height="6" fill="oklch(0.48 0.18 24)"/>
         <polygon points="18,12 24,-2 30,12" fill="oklch(0.72 0.18 65)"/>
       </g>
-      <rect x="150" y="5" width="136" height="17" rx="2" fill="oklch(0.48 0.18 24)"/>
-      <text x="218" y="17" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="10" fill="white">2 TANKERS HIT</text>
+      <rect x="132" y="6" width="176" height="26" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="220" y="24" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="15" fill="white">2 TANKERS HIT</text>
     </svg></div>
           <div class="meta-row">
             <span class="kicker">1 · BAHRAIN · HORMUZ</span>
             <span class="badge badge-official ">OFFICIAL · BAHRAIN, UKMTO</span>
           </div>
-          <h2>Bahrain says an Iranian strike set a site on fire</h2>
-          <p>No one hurt, Bahrain says; Iran claims it hit 2 US radars. Separately, UKMTO says 2 tankers were hit off Oman.</p>
+          <h2>Bahrain says Iran hit industrial site</h2>
+          <p>No one hurt, Bahrain says; Iran claims 2 US radars. UKMTO says 2 tankers hit off Oman.</p>
         </article><article class="lead-card">
           <div class="lead-art">
-    <svg viewBox="0 0 320 112" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="320" height="112" fill="oklch(0.96 0.005 85)"/>
-      <rect x="10" y="14" width="96" height="62" rx="2" fill="oklch(0.36 0.17 262)"/>
-      <g fill="oklch(0.84 0.17 92)" transform="translate(58,45)">
-        <circle cx="0" cy="-20" r="2.2"/><circle cx="10" cy="-17.3" r="2.2"/><circle cx="17.3" cy="-10" r="2.2"/>
-        <circle cx="20" cy="0" r="2.2"/><circle cx="17.3" cy="10" r="2.2"/><circle cx="10" cy="17.3" r="2.2"/>
-        <circle cx="0" cy="20" r="2.2"/><circle cx="-10" cy="17.3" r="2.2"/><circle cx="-17.3" cy="10" r="2.2"/>
-        <circle cx="-20" cy="0" r="2.2"/><circle cx="-17.3" cy="-10" r="2.2"/><circle cx="-10" cy="-17.3" r="2.2"/>
+    <svg viewBox="0 0 320 140" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="140" fill="oklch(0.96 0.005 85)"/>
+      <rect x="10" y="22" width="94" height="58" rx="2" fill="oklch(0.36 0.17 262)"/>
+      <g fill="oklch(0.84 0.17 92)" transform="translate(57,51)">
+        <circle cx="0" cy="-19" r="2.2"/><circle cx="9.5" cy="-16.4" r="2.2"/><circle cx="16.4" cy="-9.5" r="2.2"/>
+        <circle cx="19" cy="0" r="2.2"/><circle cx="16.4" cy="9.5" r="2.2"/><circle cx="9.5" cy="16.4" r="2.2"/>
+        <circle cx="0" cy="19" r="2.2"/><circle cx="-9.5" cy="16.4" r="2.2"/><circle cx="-16.4" cy="9.5" r="2.2"/>
+        <circle cx="-19" cy="0" r="2.2"/><circle cx="-16.4" cy="-9.5" r="2.2"/><circle cx="-9.5" cy="-16.4" r="2.2"/>
       </g>
-      <text x="58" y="88" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="10" fill="oklch(0.36 0.17 262)">EU</text>
-      <rect x="214" y="14" width="96" height="31" fill="oklch(0.50 0.21 25)"/>
-      <rect x="214" y="45" width="96" height="31" fill="white" stroke="oklch(0.84 0.008 85)"/>
-      <text x="262" y="88" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="10" fill="oklch(0.50 0.21 25)">INDONESIA</text>
-      <text x="160" y="14" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="oklch(0.18 0.01 260)">CEPA</text>
-      <rect x="132" y="19" width="56" height="58" rx="3" fill="oklch(0.93 0.03 230)" stroke="oklch(0.50 0.13 240)" stroke-width="1.5"/>
-      <line x1="142" y1="32" x2="178" y2="32" stroke="oklch(0.50 0.13 240)" stroke-width="2"/>
-      <line x1="142" y1="42" x2="178" y2="42" stroke="oklch(0.50 0.13 240)" stroke-width="2"/>
-      <line x1="142" y1="52" x2="168" y2="52" stroke="oklch(0.50 0.13 240)" stroke-width="2"/>
-      <circle cx="172" cy="64" r="6" fill="oklch(0.48 0.18 24)"/>
-      <rect x="20" y="92" width="280" height="16" rx="2" fill="oklch(0.18 0.01 260)"/>
-      <text x="160" y="103" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="9" fill="white">TARIFFS CUT ON 98.5% OF EU LINES</text>
+      <text x="57" y="96" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="9.5" fill="oklch(0.36 0.17 262)">EU · 98.5% CUT</text>
+      <rect x="216" y="22" width="94" height="29" fill="oklch(0.50 0.21 25)"/>
+      <rect x="216" y="51" width="94" height="29" fill="white" stroke="oklch(0.84 0.008 85)"/>
+      <text x="263" y="96" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="9.5" fill="oklch(0.50 0.21 25)">ID · 90.4% CUT</text>
+      <text x="160" y="18" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="11" fill="oklch(0.18 0.01 260)">CEPA</text>
+      <rect x="132" y="26" width="56" height="54" rx="3" fill="oklch(0.93 0.03 230)" stroke="oklch(0.50 0.13 240)" stroke-width="1.5"/>
+      <line x1="142" y1="38" x2="178" y2="38" stroke="oklch(0.50 0.13 240)" stroke-width="2"/>
+      <line x1="142" y1="48" x2="178" y2="48" stroke="oklch(0.50 0.13 240)" stroke-width="2"/>
+      <line x1="142" y1="58" x2="168" y2="58" stroke="oklch(0.50 0.13 240)" stroke-width="2"/>
+      <circle cx="172" cy="68" r="5.5" fill="oklch(0.48 0.18 24)"/>
+      <rect x="10" y="108" width="300" height="25" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="160" y="125" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="13.5" fill="white">TARIFFS CUT: 98.5% EU · 90.4% ID</text>
     </svg></div>
           <div class="meta-row">
             <span class="kicker">2 · EU · INDONESIA</span>
-            <span class="badge badge-official ">OFFICIAL · EUROPEAN COMMISSION</span>
+            <span class="badge badge-official ">OFFICIAL · EU COMMISSION</span>
           </div>
-          <h2>EU and Indonesia sign trade pact after a decade of talks</h2>
-          <p>Signed in Brussels with investment pact; duties go on 98.5% of EU tariff lines and 90.4% of Indonesia&#x27;s.</p>
+          <h2>EU and Indonesia sign trade pact</h2>
+          <p>Signed in Brussels; duties cut on 98.5% of EU lines and 90.4% of Indonesia&#x27;s.</p>
         </article><article class="lead-card">
           <div class="lead-art">
-    <svg viewBox="0 0 320 112" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="320" height="52" fill="oklch(0.28 0.04 145)"/>
-      <rect y="52" width="320" height="60" fill="oklch(0.40 0.05 140)"/>
-      <line x1="88" y1="22" x2="212" y2="22" stroke="oklch(0.15 0.01 260)" stroke-width="2.5"/>
-      <ellipse cx="150" cy="36" rx="28" ry="10" fill="oklch(0.20 0.02 145)"/>
-      <line x1="176" y1="36" x2="218" y2="31" stroke="oklch(0.20 0.02 145)" stroke-width="3"/>
-      <g fill="oklch(0.20 0.02 145)">
+    <svg viewBox="0 0 320 140" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="320" height="66" fill="oklch(0.28 0.04 145)"/>
+      <rect y="66" width="320" height="74" fill="oklch(0.40 0.05 140)"/>
+      <line x1="88" y1="36" x2="212" y2="36" stroke="oklch(0.15 0.01 260)" stroke-width="2.5"/>
+      <ellipse cx="150" cy="50" rx="28" ry="10" fill="oklch(0.20 0.02 145)"/>
+      <line x1="176" y1="50" x2="218" y2="45" stroke="oklch(0.20 0.02 145)" stroke-width="3"/>
+      <g fill="oklch(0.20 0.02 145)" transform="translate(0,14)">
         <circle cx="38" cy="54" r="4"/><rect x="33" y="59" width="10" height="22" rx="2"/>
         <circle cx="58" cy="54" r="4"/><rect x="53" y="59" width="10" height="22" rx="2"/>
         <circle cx="78" cy="54" r="4"/><rect x="73" y="59" width="10" height="22" rx="2"/>
       </g>
-      <rect x="276" y="48" width="9" height="18" fill="oklch(0.45 0.14 150)"/>
-      <rect x="285" y="48" width="9" height="18" fill="white"/>
-      <rect x="294" y="48" width="9" height="18" fill="oklch(0.50 0.21 25)"/>
-      <text x="150" y="88" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="oklch(0.93 0.01 90)">GUASAVE, SINALOA</text>
-      <rect x="8" y="5" width="136" height="17" rx="2" fill="oklch(0.48 0.18 24)"/>
-      <text x="76" y="17" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="10" fill="white">11 DEAD IN SINALOA</text>
+      <rect x="276" y="64" width="9" height="18" fill="oklch(0.45 0.14 150)"/>
+      <rect x="285" y="64" width="9" height="18" fill="white"/>
+      <rect x="294" y="64" width="9" height="18" fill="oklch(0.50 0.21 25)"/>
+      <text x="150" y="112" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="11" fill="oklch(0.93 0.01 90)">GUASAVE, SINALOA</text>
+      <rect x="8" y="6" width="188" height="26" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="102" y="24" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="15" fill="white">11 DEAD IN SINALOA</text>
     </svg></div>
           <div class="meta-row">
             <span class="kicker">3 · MEXICO · SINALOA</span>
             <span class="badge badge-confirmed ">CONFIRMED · AP, REUTERS</span>
           </div>
-          <h2>Mexico captures &#x27;El Chapo Isidro&#x27;; 11 die in clashes</h2>
-          <p>FBI top-10 fugitive Fausto Isidro Meza Flores held in Guasave; officials say 4 soldiers and 7 gunmen died.</p>
+          <h2>Mexico captures &#x27;El Chapo Isidro&#x27;</h2>
+          <p>FBI top-10 fugitive held in Guasave; 4 soldiers and 7 gunmen died in clashes.</p>
         </article></div>
 
     <div class="cards"><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="36" fill="oklch(0.86 0.03 230)"/>
-      <rect y="36" width="188" height="28" fill="oklch(0.48 0.08 235)"/>
-      <polygon points="34,42 108,42 100,52 40,52" fill="oklch(0.22 0.01 260)"/>
-      <rect x="44" y="34" width="18" height="8" fill="white"/>
-      <polygon points="68,42 78,22 88,42" fill="oklch(0.60 0.20 35)"/>
-      <circle cx="84" cy="20" r="8" fill="oklch(0.46 0.01 260)" opacity="0.85"/>
-      <circle cx="96" cy="13" r="10" fill="oklch(0.56 0.01 260)" opacity="0.75"/>
-      <text x="122" y="50" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="white">16 SAFE</text>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="44" fill="oklch(0.86 0.03 230)"/>
+      <rect y="44" width="188" height="34" fill="oklch(0.48 0.08 235)"/>
+      <polygon points="34,54 108,54 100,64 40,64" fill="oklch(0.22 0.01 260)"/>
+      <rect x="44" y="46" width="18" height="8" fill="white"/>
+      <polygon points="68,54 78,34 88,54" fill="oklch(0.60 0.20 35)"/>
+      <circle cx="84" cy="32" r="8" fill="oklch(0.46 0.01 260)" opacity="0.85"/>
+      <circle cx="96" cy="26" r="9" fill="oklch(0.56 0.01 260)" opacity="0.75"/>
+      <text x="122" y="64" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="11" fill="white">16 SAFE</text>
+      <rect x="4" y="4" width="96" height="14" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="52" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">FINLAND: SHIP ABLAZE</text>
     </svg>
             <span class="badge badge-confirmed badge-overlay">CONFIRMED</span>
           </div>
           <div class="kicker-sm">4 · FINLAND</div>
-          <h3>Drone-hit Russian ship burns off Finland</h3>
-          <p>16 crew taken off; Finland suspects Kyiv. Reuters, BBC</p>
+          <h3>Drone-hit Russian ship burns</h3>
+          <p>16 crew safe; Finland suspects Kyiv.</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="64" fill="oklch(0.22 0.02 250)"/>
-      <circle cx="24" cy="28" r="11" fill="oklch(0.72 0.16 70)"/>
-      <text x="24" y="32" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="13" fill="white">₿</text>
-      <polyline points="42,22 78,48 118,38 158,24" fill="none" stroke="oklch(0.75 0.16 70)" stroke-width="2.5" stroke-linejoin="round"/>
-      <circle cx="78" cy="48" r="3" fill="oklch(0.58 0.20 24)"/>
-      <circle cx="158" cy="24" r="3" fill="oklch(0.70 0.15 150)"/>
-      <text x="126" y="54" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="oklch(0.78 0.14 75)">$60,190</text>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="78" fill="oklch(0.22 0.02 250)"/>
+      <circle cx="24" cy="42" r="11" fill="oklch(0.72 0.16 70)"/>
+      <text x="24" y="46" text-anchor="middle" font-family="Libre Baskerville, Georgia, serif" font-weight="700" font-size="13" fill="white">₿</text>
+      <polyline points="42,34 78,58 118,48 158,36" fill="none" stroke="oklch(0.75 0.16 70)" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="78" cy="58" r="3" fill="oklch(0.58 0.20 24)"/>
+      <circle cx="158" cy="36" r="3" fill="oklch(0.70 0.15 150)"/>
+      <text x="126" y="68" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="11" fill="oklch(0.78 0.14 75)">$60,190</text>
+      <rect x="4" y="4" width="88" height="14" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="48" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">BITCOIN: 8% SWING</text>
     </svg>
             <span class="badge badge-confirmed badge-overlay">CONFIRMED</span>
           </div>
           <div class="kicker-sm">5 · CRYPTO</div>
-          <h3>Bitcoin swings 8% in one day</h3>
-          <p>From $55,250 low, lowest since 2024. CoinGecko</p>
+          <h3>Bitcoin swings 8% in a day</h3>
+          <p>From $55,250 low to $60,190.</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="64" fill="oklch(0.94 0.02 85)"/>
-      <text x="20" y="40" font-family="Georgia, serif" font-weight="700" font-size="17" fill="oklch(0.22 0.02 250)">DAY 13</text>
-      <circle cx="136" cy="34" r="17" fill="white" stroke="oklch(0.18 0.01 260)" stroke-width="2"/>
-      <line x1="136" y1="34" x2="136" y2="22" stroke="oklch(0.18 0.01 260)" stroke-width="2" stroke-linecap="round"/>
-      <line x1="136" y1="34" x2="145" y2="40" stroke="oklch(0.48 0.18 24)" stroke-width="2" stroke-linecap="round"/>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="78" fill="oklch(0.94 0.02 85)"/>
+      <text x="20" y="54" font-family="Libre Baskerville, Georgia, serif" font-weight="700" font-size="17" fill="oklch(0.22 0.02 250)">DAY 13</text>
+      <circle cx="136" cy="46" r="16" fill="white" stroke="oklch(0.18 0.01 260)" stroke-width="2"/>
+      <line x1="136" y1="46" x2="136" y2="35" stroke="oklch(0.18 0.01 260)" stroke-width="2" stroke-linecap="round"/>
+      <line x1="136" y1="46" x2="144" y2="51" stroke="oklch(0.48 0.18 24)" stroke-width="2" stroke-linecap="round"/>
+      <rect x="4" y="4" width="82" height="14" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="45" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">COP31: OVERTIME</text>
     </svg>
             <span class="badge badge-confirmed badge-overlay">CONFIRMED</span>
           </div>
           <div class="kicker-sm">6 · TURKIYE</div>
-          <h3>COP31 runs a full day over, still no deal</h3>
-          <p>Final vote moved to Sunday morning. Reuters, AFP</p>
+          <h3>COP31 runs over, no deal</h3>
+          <p>Final vote moved to Sunday.</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="64" fill="oklch(0.18 0.03 260)"/>
-      <circle cx="150" cy="32" r="18" fill="oklch(0.62 0.02 250)"/>
-      <circle cx="144" cy="26" r="4" fill="oklch(0.52 0.02 250)"/>
-      <circle cx="156" cy="38" r="3" fill="oklch(0.52 0.02 250)"/>
-      <rect x="48" y="25" width="22" height="14" fill="oklch(0.86 0.01 250)"/>
-      <rect x="20" y="29" width="28" height="6" fill="oklch(0.55 0.15 245)"/>
-      <rect x="70" y="29" width="28" height="6" fill="oklch(0.55 0.15 245)"/>
-      <polygon points="70,30 98,27 98,37" fill="oklch(0.72 0.18 65)"/>
-      <text x="122" y="56" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="9" fill="white">MERCURY</text>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="78" fill="oklch(0.18 0.03 260)"/>
+      <circle cx="150" cy="44" r="17" fill="oklch(0.62 0.02 250)"/>
+      <circle cx="144" cy="38" r="4" fill="oklch(0.52 0.02 250)"/>
+      <circle cx="156" cy="50" r="3" fill="oklch(0.52 0.02 250)"/>
+      <rect x="48" y="38" width="22" height="14" fill="oklch(0.86 0.01 250)"/>
+      <rect x="20" y="42" width="28" height="6" fill="oklch(0.55 0.15 245)"/>
+      <rect x="70" y="42" width="28" height="6" fill="oklch(0.55 0.15 245)"/>
+      <polygon points="70,43 98,40 98,50" fill="oklch(0.72 0.18 65)"/>
+      <text x="122" y="70" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="9" fill="white">MERCURY</text>
+      <rect x="4" y="4" width="84" height="14" rx="2" fill="oklch(0.24 0.01 260)"/>
+      <text x="46" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">SPACE: MERCURY</text>
     </svg>
             <span class="badge badge-official badge-overlay">OFFICIAL</span>
           </div>
           <div class="kicker-sm">7 · SPACE</div>
-          <h3>BepiColombo fires burn to orbit Mercury</h3>
-          <p>37-minute burn from 18:24 UTC. ESA</p>
+          <h3>BepiColombo Mercury burn</h3>
+          <p>37-min burn from 18:24 UTC. ESA</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="64" fill="oklch(0.95 0.015 85)"/>
-      <line x1="0" y1="34" x2="188" y2="34" stroke="oklch(0.86 0.01 85)" stroke-width="1"/>
-      <polyline points="8,34 26,34 34,14 42,54 50,10 58,52 66,24 74,34 114,34" fill="none" stroke="oklch(0.48 0.18 24)" stroke-width="2.2" stroke-linejoin="round"/>
-      <text x="124" y="42" font-family="Georgia, serif" font-weight="700" font-size="16" fill="oklch(0.18 0.01 260)">M6.7</text>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="78" fill="oklch(0.95 0.015 85)"/>
+      <line x1="0" y1="46" x2="188" y2="46" stroke="oklch(0.86 0.01 85)" stroke-width="1"/>
+      <polyline points="8,46 26,46 34,28 42,64 50,24 58,62 66,36 74,46 114,46" fill="none" stroke="oklch(0.48 0.18 24)" stroke-width="2.2" stroke-linejoin="round"/>
+      <text x="124" y="54" font-family="Libre Baskerville, Georgia, serif" font-weight="700" font-size="16" fill="oklch(0.18 0.01 260)">M6.7</text>
+      <rect x="4" y="4" width="84" height="14" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="46" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">PERU: M6.7 QUAKE</text>
     </svg>
             <span class="badge badge-official badge-overlay">OFFICIAL</span>
           </div>
           <div class="kicker-sm">8 · PERU</div>
-          <h3>M6.7 quake shakes central Peru</h3>
-          <p>8 hurt, officials say; felt in Lima. USGS</p>
+          <h3>M6.7 quake shakes Peru</h3>
+          <p>8 hurt; felt in Lima. USGS</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="64" fill="oklch(0.90 0.03 230)"/>
-      <line x1="94" y1="0" x2="94" y2="64" stroke="oklch(0.48 0.18 24)" stroke-width="2" stroke-dasharray="4 3"/>
-      <g fill="oklch(0.30 0.03 250)">
-        <polygon points="34,16 54,21 34,26 39,21"/>
-        <polygon points="62,28 82,33 62,38 67,33"/>
-        <polygon points="34,40 54,45 34,50 39,45"/>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="78" fill="oklch(0.90 0.03 230)"/>
+      <line x1="94" y1="0" x2="94" y2="78" stroke="oklch(0.48 0.18 24)" stroke-width="2" stroke-dasharray="4 3"/>
+      <g fill="oklch(0.30 0.03 250)" transform="translate(0,8)">
+        <polygon points="34,22 54,27 34,32 39,27"/>
+        <polygon points="62,33 82,38 62,43 67,38"/>
+        <polygon points="34,44 54,49 34,54 39,49"/>
       </g>
-      <text x="124" y="50" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="oklch(0.18 0.01 260)">21 JETS</text>
+      <text x="124" y="60" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="11" fill="oklch(0.18 0.01 260)">21 JETS</text>
+      <rect x="4" y="4" width="76" height="14" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="42" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">TAIWAN: 21 JETS</text>
     </svg>
             <span class="badge badge-official badge-overlay">OFFICIAL</span>
           </div>
           <div class="kicker-sm">9 · TAIWAN</div>
-          <h3>Taiwan says 21 Chinese jets held a patrol</h3>
-          <p>15 crossed median line. Taipei MoD</p>
+          <h3>21 Chinese jets near Taiwan</h3>
+          <p>15 crossed median line. MoD</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="44" fill="oklch(0.20 0.03 255)"/>
-      <rect y="44" width="188" height="20" fill="oklch(0.32 0.05 245)"/>
-      <rect x="28" y="28" width="22" height="16" fill="oklch(0.40 0.02 250)"/>
-      <rect x="58" y="24" width="22" height="20" fill="oklch(0.45 0.02 250)"/>
-      <polygon points="64,28 76,10 88,28" fill="oklch(0.62 0.20 35)"/>
-      <polygon points="108,16 122,20 108,24" fill="oklch(0.75 0.16 70)"/>
-      <text x="122" y="56" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="10" fill="white">UST-LUGA</text>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="54" fill="oklch(0.20 0.03 255)"/>
+      <rect y="54" width="188" height="24" fill="oklch(0.32 0.05 245)"/>
+      <rect x="28" y="38" width="22" height="16" fill="oklch(0.40 0.02 250)"/>
+      <rect x="58" y="34" width="22" height="20" fill="oklch(0.45 0.02 250)"/>
+      <polygon points="64,38 76,22 88,38" fill="oklch(0.62 0.20 35)"/>
+      <polygon points="108,30 122,34 108,38" fill="oklch(0.75 0.16 70)"/>
+      <text x="122" y="68" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="10" fill="white">UST-LUGA</text>
+      <rect x="4" y="4" width="84" height="14" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="46" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">RUSSIA: DRONES</text>
     </svg>
             <span class="badge badge-confirmed badge-overlay">CONFIRMED</span>
           </div>
           <div class="kicker-sm">10 · UKRAINE · RUSSIA</div>
-          <h3>Ukrainian drones hit Russia&#x27;s Ust-Luga port</h3>
-          <p>Estonia scrambles NATO jets. Kyiv Post, ERR</p>
+          <h3>Drones hit Ust-Luga port</h3>
+          <p>Estonia scrambles NATO jets.</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="64" fill="oklch(0.95 0.015 230)"/>
-      <rect x="22" y="34" width="84" height="10" rx="2" fill="white" stroke="oklch(0.48 0.03 250)" stroke-width="2"/>
-      <line x1="22" y1="24" x2="22" y2="54" stroke="oklch(0.48 0.03 250)" stroke-width="3"/>
-      <line x1="106" y1="30" x2="106" y2="54" stroke="oklch(0.48 0.03 250)" stroke-width="3"/>
-      <text x="124" y="45" font-family="Georgia, serif" font-weight="700" font-size="16" fill="oklch(0.48 0.18 24)">ICU</text>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="78" fill="oklch(0.95 0.015 230)"/>
+      <rect x="22" y="46" width="84" height="10" rx="2" fill="white" stroke="oklch(0.48 0.03 250)" stroke-width="2"/>
+      <line x1="22" y1="36" x2="22" y2="66" stroke="oklch(0.48 0.03 250)" stroke-width="3"/>
+      <line x1="106" y1="42" x2="106" y2="66" stroke="oklch(0.48 0.03 250)" stroke-width="3"/>
+      <text x="124" y="56" font-family="Libre Baskerville, Georgia, serif" font-weight="700" font-size="16" fill="oklch(0.48 0.18 24)">ICU</text>
+      <rect x="4" y="4" width="70" height="14" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="39" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">BRAZIL: ICU</text>
     </svg>
             <span class="badge badge-confirmed badge-overlay">CONFIRMED</span>
           </div>
           <div class="kicker-sm">11 · BRAZIL</div>
-          <h3>Bolsonaro moved to intensive care</h3>
-          <p>Ex-president, 71, has bowel obstruction. Reuters</p>
+          <h3>Bolsonaro moved to ICU</h3>
+          <p>Ex-president has bowel blockage.</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="64" fill="oklch(0.93 0.03 145)"/>
-      <line x1="34" y1="16" x2="48" y2="50" stroke="oklch(0.55 0.08 55)" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="62" cy="44" r="6" fill="oklch(0.48 0.18 24)"/>
-      <text x="96" y="44" font-family="Georgia, serif" font-weight="700" font-size="17" fill="oklch(0.18 0.01 260)">486-4</text>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="78" fill="oklch(0.93 0.03 145)"/>
+      <line x1="34" y1="30" x2="48" y2="64" stroke="oklch(0.55 0.08 55)" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="62" cy="58" r="6" fill="oklch(0.48 0.18 24)"/>
+      <text x="96" y="58" font-family="Libre Baskerville, Georgia, serif" font-weight="700" font-size="17" fill="oklch(0.18 0.01 260)">486-4</text>
+      <rect x="4" y="4" width="76" height="14" rx="2" fill="oklch(0.24 0.01 260)"/>
+      <text x="42" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">CRICKET: 486-4</text>
     </svg>
             <span class="badge badge-confirmed badge-overlay">CONFIRMED</span>
           </div>
           <div class="kicker-sm">12 · NEW ZEALAND</div>
-          <h3>India 486 for 4 against New Zealand</h3>
-          <p>KL Rahul 136, Gill 98 in Wellington. ICC</p>
+          <h3>India 486-4 vs New Zealand</h3>
+          <p>Rahul 136, Gill 98 in Wellington.</p>
         </article><article class="mini-card">
           <div class="mini-art">
             
-    <svg viewBox="0 0 188 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <rect width="188" height="64" fill="oklch(0.94 0.01 250)"/>
-      <rect x="28" y="20" width="32" height="24" rx="4" fill="oklch(0.48 0.03 250)"/>
-      <circle cx="38" cy="30" r="3" fill="white"/>
-      <circle cx="50" cy="30" r="3" fill="white"/>
-      <circle cx="44" cy="32" r="21" fill="none" stroke="oklch(0.48 0.18 24)" stroke-width="3"/>
-      <line x1="29" y1="17" x2="59" y2="47" stroke="oklch(0.48 0.18 24)" stroke-width="3"/>
-      <text x="86" y="42" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="11" fill="oklch(0.18 0.01 260)">128 STATES</text>
+    <svg viewBox="0 0 188 78" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="188" height="78" fill="oklch(0.94 0.01 250)"/>
+      <rect x="28" y="32" width="32" height="24" rx="4" fill="oklch(0.48 0.03 250)"/>
+      <circle cx="38" cy="42" r="3" fill="white"/>
+      <circle cx="50" cy="42" r="3" fill="white"/>
+      <circle cx="44" cy="44" r="20" fill="none" stroke="oklch(0.48 0.18 24)" stroke-width="3"/>
+      <line x1="30" y1="30" x2="58" y2="58" stroke="oklch(0.48 0.18 24)" stroke-width="3"/>
+      <text x="86" y="54" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="11" fill="oklch(0.18 0.01 260)">128 STATES</text>
+      <rect x="4" y="4" width="88" height="14" rx="2" fill="oklch(0.48 0.18 24)"/>
+      <text x="48" y="14" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="8.5" fill="white">UN: KILLER ROBOTS</text>
     </svg>
             <span class="badge badge-confirmed badge-overlay">CONFIRMED</span>
           </div>
           <div class="kicker-sm">13 · GENEVA · UN</div>
-          <h3>UN talks set 2-year path on killer robots</h3>
-          <p>No mandate yet for binding treaty. AFP, Reuters</p>
+          <h3>UN killer-robot 2-yr path</h3>
+          <p>No binding treaty mandate yet.</p>
         </article></div>
 
     <div class="bottom">
       <div>
         <div class="sec-hd">WHERE IT HAPPENED</div>
-        <div class="map-box"><svg viewBox="0 0 340 220" width="100%" height="220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="oklch(0.955 0.006 85)"/><polygon points="14.2,26.3 47.2,18.6 94.4,31.0 118.1,49.6 99.2,83.7 75.6,102.3 54.8,71.3" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="94.4,110.0 122.8,119.3 136.9,139.4 119.0,182.8 103.9,207.6 94.4,150.3" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="160.6,71.3 170.0,49.6 184.2,37.2 203.1,21.7 221.9,26.3 217.2,57.3 198.3,68.2 174.7,71.3" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="154.9,72.8 179.4,69.7 202.1,79.0 217.2,108.5 207.8,142.5 196.4,179.7 184.2,173.5 179.4,119.3 154.9,103.8" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="203.1,68.2 226.7,68.2 240.8,96.1 269.2,111.5 285.2,89.9 304.1,58.9 325.8,27.9 264.4,15.5 221.9,21.7" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="277.7,161.1 306.9,145.6 314.5,170.4 300.3,185.9 278.6,179.7" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><g transform="translate(217.8,86.5)"><circle r="6.2" fill="oklch(0.46 0.15 310)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">1</text></g><g transform="translate(174.2,48.3)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">2</text></g><g transform="translate(67.5,87.4)"><circle r="6.2" fill="oklch(0.48 0.18 24)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">3</text></g><g transform="translate(195.3,33.9)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">4</text></g><g transform="translate(169.9,47.3)"><circle r="6.2" fill="oklch(0.24 0.01 260)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">5</text></g><g transform="translate(199.0,69.9)"><circle r="6.2" fill="oklch(0.46 0.15 310)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">6</text></g><g transform="translate(103.9,204.5)"><circle r="6.2" fill="oklch(0.24 0.01 260)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">7</text></g><g transform="translate(98.7,144.9)"><circle r="6.2" fill="oklch(0.50 0.14 70)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">8</text></g><g transform="translate(284.8,88.3)"><circle r="6.2" fill="oklch(0.48 0.12 195)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">9</text></g><g transform="translate(196.8,34.5)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">10</text></g><g transform="translate(124.8,151.5)"><circle r="6.2" fill="oklch(0.50 0.14 70)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">11</text></g><g transform="translate(332.0,191.0)"><circle r="6.2" fill="oklch(0.46 0.12 170)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">12</text></g><g transform="translate(175.8,55.5)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">13</text></g><g transform="translate(223.3,86.0)"><circle r="6.2" fill="oklch(0.46 0.15 310)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">14</text></g><g transform="translate(202.6,78.2)"><circle r="6.2" fill="oklch(0.46 0.15 310)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">15</text></g><g transform="translate(189.8,46.2)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">16</text></g><g transform="translate(172.2,51.3)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">17</text></g><g transform="translate(164.0,44.5)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">18</text></g><g transform="translate(291.8,137.1)"><circle r="6.2" fill="oklch(0.48 0.12 195)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">19</text></g><g transform="translate(258.7,88.6)"><circle r="6.2" fill="oklch(0.48 0.12 195)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">20</text></g><g transform="translate(302.6,68.6)"><circle r="6.2" fill="oklch(0.48 0.12 195)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">21</text></g><g transform="translate(176.0,119.5)"><circle r="6.2" fill="oklch(0.46 0.13 150)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">22</text></g><g transform="translate(177.1,112.9)"><circle r="6.2" fill="oklch(0.46 0.13 150)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">23</text></g><g transform="translate(97.3,66.8)"><circle r="6.2" fill="oklch(0.48 0.18 24)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">24</text></g><g transform="translate(92.9,81.2)"><circle r="6.2" fill="oklch(0.48 0.18 24)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">25</text></g><g transform="translate(128.5,157.9)"><circle r="6.2" fill="oklch(0.50 0.14 70)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">26</text></g><g transform="translate(306.9,185.6)"><circle r="6.2" fill="oklch(0.46 0.12 170)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Arial Narrow, sans-serif" font-weight="700" font-size="7.5" fill="white">27</text></g></svg></div>
+        <div class="map-box"><svg viewBox="0 0 280 152" width="100%" height="152" xmlns="http://www.w3.org/2000/svg"><rect width="280" height="152" fill="oklch(0.955 0.006 85)"/><polygon points="11.7,18.2 38.9,12.8 77.8,21.4 97.2,34.3 81.7,57.8 62.2,70.6 45.1,49.2" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="77.8,76.0 101.1,82.4 112.8,96.3 98.0,126.3 85.6,143.4 77.8,103.8" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="132.2,49.2 140.0,34.3 151.7,25.7 167.2,15.0 182.8,18.2 178.9,39.6 163.3,47.1 143.9,49.2" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="127.6,50.3 147.8,48.2 166.4,54.6 178.9,74.9 171.1,98.5 161.8,124.2 151.7,119.9 147.8,82.4 127.6,71.7" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="167.2,47.1 186.7,47.1 198.3,66.4 221.7,77.1 234.9,62.1 250.4,40.7 268.3,19.3 217.8,10.7 182.8,15.0" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><polygon points="228.7,111.3 252.8,100.6 259.0,117.7 247.3,128.5 229.4,124.2" fill="oklch(0.87 0.015 85)" stroke="oklch(0.76 0.015 85)" stroke-width="0.8"/><g transform="translate(179.4,59.7)"><circle r="6.2" fill="oklch(0.46 0.15 310)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">1</text></g><g transform="translate(143.4,33.4)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">2</text></g><g transform="translate(55.6,60.4)"><circle r="6.2" fill="oklch(0.48 0.18 24)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">3</text></g><g transform="translate(160.8,23.4)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">4</text></g><g transform="translate(139.9,32.6)"><circle r="6.2" fill="oklch(0.24 0.01 260)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">5</text></g><g transform="translate(163.9,48.3)"><circle r="6.2" fill="oklch(0.46 0.15 310)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">6</text></g><g transform="translate(85.6,141.3)"><circle r="6.2" fill="oklch(0.24 0.01 260)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">7</text></g><g transform="translate(81.3,100.1)"><circle r="6.2" fill="oklch(0.50 0.14 70)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">8</text></g><g transform="translate(234.5,61.0)"><circle r="6.2" fill="oklch(0.48 0.12 195)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">9</text></g><g transform="translate(162.1,23.9)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">10</text></g><g transform="translate(102.7,104.7)"><circle r="6.2" fill="oklch(0.50 0.14 70)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">11</text></g><g transform="translate(272.0,132.0)"><circle r="6.2" fill="oklch(0.46 0.12 170)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">12</text></g><g transform="translate(144.7,38.3)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">13</text></g><g transform="translate(183.9,59.4)"><circle r="6.2" fill="oklch(0.46 0.15 310)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">14</text></g><g transform="translate(166.8,54.1)"><circle r="6.2" fill="oklch(0.46 0.15 310)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">15</text></g><g transform="translate(156.3,31.9)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">16</text></g><g transform="translate(141.8,35.4)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">17</text></g><g transform="translate(135.1,30.7)"><circle r="6.2" fill="oklch(0.46 0.13 245)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">18</text></g><g transform="translate(240.3,94.7)"><circle r="6.2" fill="oklch(0.48 0.12 195)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">19</text></g><g transform="translate(213.0,61.2)"><circle r="6.2" fill="oklch(0.48 0.12 195)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">20</text></g><g transform="translate(249.2,47.4)"><circle r="6.2" fill="oklch(0.48 0.12 195)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">21</text></g><g transform="translate(144.9,82.5)"><circle r="6.2" fill="oklch(0.46 0.13 150)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">22</text></g><g transform="translate(145.8,78.0)"><circle r="6.2" fill="oklch(0.46 0.13 150)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">23</text></g><g transform="translate(80.1,46.1)"><circle r="6.2" fill="oklch(0.48 0.18 24)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">24</text></g><g transform="translate(76.5,56.1)"><circle r="6.2" fill="oklch(0.48 0.18 24)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">25</text></g><g transform="translate(105.9,109.1)"><circle r="6.2" fill="oklch(0.50 0.14 70)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">26</text></g><g transform="translate(252.8,128.2)"><circle r="6.2" fill="oklch(0.46 0.12 170)" stroke="white" stroke-width="1"/><text y="2.8" text-anchor="middle" font-family="Libre Franklin, Arial Narrow, sans-serif" font-weight="900" font-size="7.5" fill="white">27</text></g></svg></div>
         <div class="legend"><span class="leg-item"><i style="background:oklch(0.46 0.13 245)"></i>Europe</span><span class="leg-item"><i style="background:oklch(0.48 0.12 195)"></i>Asia</span><span class="leg-item"><i style="background:oklch(0.46 0.15 310)"></i>Middle East</span><span class="leg-item"><i style="background:oklch(0.46 0.13 150)"></i>Africa</span><span class="leg-item"><i style="background:oklch(0.48 0.18 24)"></i>N. America</span><span class="leg-item"><i style="background:oklch(0.50 0.14 70)"></i>S. America</span><span class="leg-item"><i style="background:oklch(0.46 0.12 170)"></i>Oceania</span><span class="leg-item"><i style="background:oklch(0.24 0.01 260)"></i>Global</span></div>
       </div>
       <div>
-        <div class="sec-hd">ALSO ON SATURDAY 21 NOVEMBER · 14 MORE STORIES</div>
+        <div class="sec-hd">ALSO ON SATURDAY 21 NOVEMBER · 27 MORE STORIES</div>
         <div class="briefs-grid">
-          <div><div class="brief"><span class="b-id">14</span> <span class="b-loc">Iran:</span> says it shot down 2 US drones over Hormuz</div><div class="brief"><span class="b-id">15</span> <span class="b-loc">Gaza:</span> civil defence says Israeli fire killed 4</div><div class="brief"><span class="b-id">16</span> <span class="b-loc">NATO:</span> Rutte vows to defend &#x27;every inch&#x27; of Poland</div><div class="brief"><span class="b-id">17</span> <span class="b-loc">France:</span> police count 82,500 at cost-of-living marches</div><div class="brief"><span class="b-id">18</span> <span class="b-loc">Dublin:</span> Ireland beat world champions South Africa 20-17</div><div class="brief"><span class="b-id">19</span> <span class="b-loc">Banda Sea:</span> M6.8 quake felt in Darwin; no tsunami</div><div class="brief"><span class="b-id">20</span> <span class="b-loc">India:</span> toxic liquor kills at least 16 in Manipur</div></div>
-          <div><div class="brief"><span class="b-id">21</span> <span class="b-loc">Japan:</span> snow cuts off 1,400 in a Fukushima village</div><div class="brief"><span class="b-id">22</span> <span class="b-loc">Nigeria:</span> at least 24 die as funeral boat capsizes</div><div class="brief"><span class="b-id">23</span> <span class="b-loc">Abuja:</span> CAF adopts Kiswahili, backs Infantino</div><div class="brief"><span class="b-id">24</span> <span class="b-loc">US:</span> Trump confirms a hack of the FBI crime database</div><div class="brief"><span class="b-id">25</span> <span class="b-loc">Florida:</span> St. Johns River tops its 1953 flood record</div><div class="brief"><span class="b-id">26</span> <span class="b-loc">Brazil:</span> lab mosquitoes cut dengue 69% in 4-year trial</div><div class="brief"><span class="b-id">27</span> <span class="b-loc">Australia:</span> beat England by 3 wickets in a T20 at MCG</div></div>
+          <div><div class="brief"><span class="b-id">14</span> <span class="b-loc">Iran:</span> says it shot down 2 US drones over Hormuz</div><div class="brief"><span class="b-id">15</span> <span class="b-loc">Gaza:</span> civil defence says Israeli fire killed 4</div><div class="brief"><span class="b-id">16</span> <span class="b-loc">Lebanon:</span> Aoun says state alone will hold arms</div><div class="brief"><span class="b-id">17</span> <span class="b-loc">Israel:</span> Eisenkot invites Likud to coalition talks</div><div class="brief"><span class="b-id">18</span> <span class="b-loc">NATO:</span> Rutte vows to defend &#x27;every inch&#x27; of Poland</div><div class="brief"><span class="b-id">19</span> <span class="b-loc">France:</span> police count 82,500 at cost-of-living marches</div><div class="brief"><span class="b-id">20</span> <span class="b-loc">London:</span> Leeds win 4-1 at Chelsea in Premier League</div><div class="brief"><span class="b-id">21</span> <span class="b-loc">Newcastle:</span> Arsenal draw 2-2 at St James&#x27; Park</div><div class="brief"><span class="b-id">22</span> <span class="b-loc">Dublin:</span> Ireland beat world champions South Africa 20-17</div></div>
+          <div><div class="brief"><span class="b-id">23</span> <span class="b-loc">Banda Sea:</span> M6.8 quake felt in Darwin; no tsunami</div><div class="brief"><span class="b-id">24</span> <span class="b-loc">China:</span> M5.7 intermediate-depth quake recorded (NCS)</div><div class="brief"><span class="b-id">25</span> <span class="b-loc">India:</span> toxic liquor kills at least 16 in Manipur</div><div class="brief"><span class="b-id">26</span> <span class="b-loc">Japan:</span> snow cuts off 1,400 in a Fukushima village</div><div class="brief"><span class="b-id">27</span> <span class="b-loc">Thailand:</span> emergency plan on arsenic in two rivers</div><div class="brief"><span class="b-id">28</span> <span class="b-loc">Bangladesh:</span> 90 extra Border Guard platoons deployed</div><div class="brief"><span class="b-id">29</span> <span class="b-loc">Nigeria:</span> at least 24 die as funeral boat capsizes</div><div class="brief"><span class="b-id">30</span> <span class="b-loc">Niger State:</span> bandits kill village head, abduct residents</div><div class="brief"><span class="b-id">31</span> <span class="b-loc">Abuja:</span> CAF adopts Kiswahili, backs Infantino</div></div>
+          <div><div class="brief"><span class="b-id">32</span> <span class="b-loc">Uganda:</span> army chief says a $3bn rail deal is off</div><div class="brief"><span class="b-id">33</span> <span class="b-loc">US:</span> Trump confirms a hack of the FBI crime database</div><div class="brief"><span class="b-id">34</span> <span class="b-loc">US:</span> Trump backs a 10% credit card rate cap</div><div class="brief"><span class="b-id">35</span> <span class="b-loc">Las Vegas:</span> Verstappen inherits F1 pole after penalty</div><div class="brief"><span class="b-id">36</span> <span class="b-loc">Halifax:</span> US senators calm allies over Pentagon memo</div><div class="brief"><span class="b-id">37</span> <span class="b-loc">Florida:</span> St. Johns River tops its 1953 flood record</div><div class="brief"><span class="b-id">38</span> <span class="b-loc">Brazil:</span> lab mosquitoes cut dengue 69% in 4-year trial</div><div class="brief"><span class="b-id">39</span> <span class="b-loc">Brazil:</span> Flamengo clinch a second straight title</div><div class="brief"><span class="b-id">40</span> <span class="b-loc">Australia:</span> beat England by 3 wickets in a T20 at MCG</div></div>
         </div>
-        <div class="date-check">DATE CHECK · Every story 01–27 happened or was first reported on SATURDAY 21 NOVEMBER 2026. Earlier-day items excluded on purpose; COP31 final vote paused to Sunday.</div>
+        <div class="date-check">DATE CHECK · Every story 01–40 happened or was first reported on SATURDAY 21 NOVEMBER 2026. Earlier-day items excluded on purpose; COP31 final vote paused to Sunday.</div>
       </div>
     </div>
 
