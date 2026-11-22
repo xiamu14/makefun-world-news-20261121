@@ -188,7 +188,7 @@ def badge_html(status: str, kind: str, overlay: bool = False) -> str:
 
 
 def build_world_map_svg(pins: list[dict]) -> str:
-    w, h = 340, 232
+    w, h = 340, 220
 
     def proj(lon: float, lat: float) -> tuple[float, float]:
         px = ((lon + 180.0) / 360.0) * w
@@ -299,7 +299,7 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   .page {{
     width: 1024px;
     height: 1024px;
-    padding: 10px 20px 8px;
+    padding: 8px 20px 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -368,7 +368,7 @@ def generate_html(data_path: Path, out_html: Path) -> None:
     border-bottom: 1px solid var(--rule);
   }}
   .lead-art {{
-    height: 112px;
+    height: 104px;
     border: 1px solid var(--ink-secondary);
     overflow: hidden;
   }}
@@ -426,7 +426,7 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   }}
   .mini-art {{
     position: relative;
-    height: 64px;
+    height: 60px;
     border: 1px solid var(--ink-secondary);
     overflow: hidden;
   }}
