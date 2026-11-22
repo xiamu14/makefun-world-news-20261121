@@ -1,7 +1,7 @@
 {
   "masthead": "Saturday 21 November 2026",
   "eyebrow_left": "ONE DAY OF WORLD NEWS, ONE PICTURE",
-  "eyebrow_right": "40 STORIES · 6 CONTINENTS + SPACE · ALL FROM THIS SATURDAY",
+  "eyebrow_right": "27 STORIES · 6 CONTINENTS + SPACE · ALL FROM THIS SATURDAY",
   "timeline": [
     {"time": "00:09", "label": "Peru M6.7 quake"},
     {"time": "02:00", "label": "Sinaloa raid"},
@@ -20,13 +20,13 @@
     {"num": "11", "label": "dead in Sinaloa raid (AP)", "color": "oklch(0.50 0.14 70)"}
   ],
   "region_bar": [
-    {"name": "Europe 10", "count": 10, "color": "oklch(0.46 0.13 245)"},
-    {"name": "Middle East 6", "count": 6, "color": "oklch(0.46 0.15 310)"},
-    {"name": "Africa 5", "count": 5, "color": "oklch(0.46 0.13 150)"},
-    {"name": "Asia 6", "count": 6, "color": "oklch(0.48 0.12 195)"},
-    {"name": "Americas 7", "count": 7, "color": "oklch(0.48 0.18 24)"},
-    {"name": "Oceania 3", "count": 3, "color": "oklch(0.46 0.12 170)"},
-    {"name": "Global 3", "count": 3, "color": "oklch(0.24 0.01 260)"}
+    {"name": "Europe 7", "count": 7, "color": "oklch(0.46 0.13 245)"},
+    {"name": "Middle East 5", "count": 5, "color": "oklch(0.46 0.15 310)"},
+    {"name": "Africa 2", "count": 2, "color": "oklch(0.46 0.13 150)"},
+    {"name": "Asia 4", "count": 4, "color": "oklch(0.48 0.12 195)"},
+    {"name": "Americas 5", "count": 5, "color": "oklch(0.48 0.18 24)"},
+    {"name": "Oceania 2", "count": 2, "color": "oklch(0.46 0.12 170)"},
+    {"name": "Global 2", "count": 2, "color": "oklch(0.24 0.01 260)"}
   ],
   "leads": [
     {
@@ -66,37 +66,24 @@
     {"id": "9", "kicker": "9 · TAIWAN", "status": "OFFICIAL", "status_kind": "official", "title": "21 Chinese jets near Taiwan", "sub": "15 crossed median line. MoD", "art": "taiwan_jets"},
     {"id": "10", "kicker": "10 · UKRAINE · RUSSIA", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Drones hit Ust-Luga port", "sub": "Estonia scrambles NATO jets.", "art": "ust_luga"},
     {"id": "11", "kicker": "11 · BRAZIL", "status": "CONFIRMED", "status_kind": "confirmed", "title": "Bolsonaro moved to ICU", "sub": "Ex-president has bowel blockage.", "art": "bolsonaro_icu"},
-    {"id": "12", "kicker": "12 · NEW ZEALAND", "status": "CONFIRMED", "status_kind": "confirmed", "title": "India 486-4 vs New Zealand", "sub": "Rahul 136, Gill 98 in Wellington.", "art": "cricket_nz"},
+    {"id": "12", "kicker": "12 · CRICKET · WELLINGTON", "status": "CONFIRMED", "status_kind": "confirmed", "title": "India 486-4 vs New Zealand", "sub": "Rahul 136, Gill 98 in Wellington.", "art": "cricket_nz"},
     {"id": "13", "kicker": "13 · GENEVA · UN", "status": "CONFIRMED", "status_kind": "confirmed", "title": "UN killer-robot 2-yr path", "sub": "No binding treaty mandate yet.", "art": "un_robots"}
   ],
   "briefs": [
     ["14", "Iran", "says it shot down 2 US drones over Hormuz"],
     ["15", "Gaza", "civil defence says Israeli fire killed 4"],
-    ["16", "Lebanon", "Aoun says state alone will hold arms"],
-    ["17", "Israel", "Eisenkot invites Likud to coalition talks"],
-    ["18", "NATO", "Rutte vows to defend 'every inch' of Poland"],
-    ["19", "France", "police count 82,500 at cost-of-living marches"],
-    ["20", "London", "Leeds win 4-1 at Chelsea in Premier League"],
-    ["21", "Newcastle", "Arsenal draw 2-2 at St James' Park"],
-    ["22", "Dublin", "Ireland beat world champions South Africa 20-17"],
-    ["23", "Banda Sea", "M6.8 quake felt in Darwin; no tsunami"],
-    ["24", "China", "M5.7 intermediate-depth quake recorded (NCS)"],
-    ["25", "India", "toxic liquor kills at least 16 in Manipur"],
-    ["26", "Japan", "snow cuts off 1,400 in a Fukushima village"],
-    ["27", "Thailand", "emergency plan on arsenic in two rivers"],
-    ["28", "Bangladesh", "90 extra Border Guard platoons deployed"],
-    ["29", "Nigeria", "at least 24 die as funeral boat capsizes"],
-    ["30", "Niger State", "bandits kill village head, abduct residents"],
-    ["31", "Abuja", "CAF adopts Kiswahili, backs Infantino"],
-    ["32", "Uganda", "army chief says a $3bn rail deal is off"],
-    ["33", "US", "Trump confirms a hack of the FBI crime database"],
-    ["34", "US", "Trump backs a 10% credit card rate cap"],
-    ["35", "Las Vegas", "Verstappen inherits F1 pole after penalty"],
-    ["36", "Halifax", "US senators calm allies over Pentagon memo"],
-    ["37", "Florida", "St. Johns River tops its 1953 flood record"],
-    ["38", "Brazil", "lab mosquitoes cut dengue 69% in 4-year trial"],
-    ["39", "Brazil", "Flamengo clinch a second straight title"],
-    ["40", "Australia", "beat England by 3 wickets in a T20 at MCG"]
+    ["16", "NATO", "Rutte vows to defend 'every inch' of Poland"],
+    ["17", "France", "police count 82,500 at cost-of-living marches"],
+    ["18", "London", "Leeds win 4-1 at Chelsea in Premier League"],
+    ["19", "Dublin", "Ireland beat world champions South Africa 20-17"],
+    ["20", "Banda Sea", "M6.8 quake felt in Darwin; no tsunami"],
+    ["21", "India", "toxic liquor kills at least 16 in Manipur"],
+    ["22", "Japan", "snow cuts off 1,400 in a Fukushima village"],
+    ["23", "Nigeria", "at least 24 die as funeral boat capsizes"],
+    ["24", "Abuja", "CAF adopts Kiswahili, backs Infantino"],
+    ["25", "US", "Trump confirms a hack of the FBI crime database"],
+    ["26", "Florida", "St. Johns River tops its 1953 flood record"],
+    ["27", "Australia", "beat England by 3 wickets in a T20 at MCG"]
   ],
   "pins": [
     {"id": 1, "lon": 50.6, "lat": 26.2, "r": "MIDDLE EAST"},
@@ -127,5 +114,5 @@
     {"id": 26, "lon": -43.9, "lat": -19.9, "r": "S. AMERICA"},
     {"id": 27, "lon": 145.0, "lat": -37.8, "r": "OCEANIA"}
   ],
-  "date_check": "DATE CHECK · Every story 01–40 happened or was first reported on SATURDAY 21 NOVEMBER 2026. Earlier-day items excluded on purpose; COP31 final vote paused to Sunday."
+  "date_check": "DATE CHECK · Every story 01–27 happened or was first reported on SATURDAY 21 NOVEMBER 2026. Earlier-day items excluded on purpose; COP31 final vote paused to Sunday."
 }

@@ -207,7 +207,7 @@ def badge_html(status: str, kind: str, overlay: bool = False) -> str:
 
 
 def build_world_map_svg(pins: list[dict]) -> str:
-    w, h = 280, 152
+    w, h = 330, 178
 
     def proj(lon: float, lat: float) -> tuple[float, float]:
         px = ((lon + 180.0) / 360.0) * w
@@ -288,15 +288,11 @@ def generate_html(data_path: Path, out_html: Path) -> None:
 
     col1 = ''.join(
         f'<div class="brief"><span class="b-id">{b[0]}</span> <span class="b-loc">{html.escape(b[1])}:</span> {html.escape(b[2])}</div>'
-        for b in data['briefs'][:9]
+        for b in data['briefs'][:7]
     )
     col2 = ''.join(
         f'<div class="brief"><span class="b-id">{b[0]}</span> <span class="b-loc">{html.escape(b[1])}:</span> {html.escape(b[2])}</div>'
-        for b in data['briefs'][9:18]
-    )
-    col3 = ''.join(
-        f'<div class="brief"><span class="b-id">{b[0]}</span> <span class="b-loc">{html.escape(b[1])}:</span> {html.escape(b[2])}</div>'
-        for b in data['briefs'][18:]
+        for b in data['briefs'][7:]
     )
 
     legend_html = ''.join(
@@ -549,8 +545,8 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   }}
   .bottom {{
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 12px;
+    grid-template-columns: 330px 1fr;
+    gap: 14px;
     align-items: start;
   }}
   .sec-hd {{
@@ -586,17 +582,17 @@ def generate_html(data_path: Path, out_html: Path) -> None:
   }}
   .briefs-grid {{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0 10px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 14px;
     border-top: 1px solid var(--ink-primary);
     padding-top: 3px;
   }}
   .brief {{
     font-family: nyt-franklin, "Libre Franklin", helvetica, arial, sans-serif;
     font-weight: 500;
-    font-size: 8.2px;
-    line-height: 1.32;
-    padding: 1.2px 0;
+    font-size: 9.6px;
+    line-height: 1.38;
+    padding: 2.2px 0;
     border-bottom: 1px solid var(--rule);
     color: var(--ink-primary);
   }}
@@ -657,11 +653,10 @@ def generate_html(data_path: Path, out_html: Path) -> None:
         <div class="legend">{legend_html}</div>
       </div>
       <div>
-        <div class="sec-hd">ALSO ON SATURDAY 21 NOVEMBER · 27 MORE STORIES</div>
+        <div class="sec-hd">ALSO ON SATURDAY 21 NOVEMBER · 14 MORE STORIES</div>
         <div class="briefs-grid">
           <div>{col1}</div>
           <div>{col2}</div>
-          <div>{col3}</div>
         </div>
         <div class="date-check">{html.escape(data["date_check"])}</div>
       </div>
